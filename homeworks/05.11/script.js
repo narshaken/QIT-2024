@@ -1,5 +1,5 @@
 //tapsyrma 1
-var age = prompt("Enter your name");
+var age = prompt("Enter your age");
 if (age > 18) {
     alert("Siz ereseksiz!");
 } else {

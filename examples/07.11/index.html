@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*let option = prompt("1-den 3-ke dein san tanda:");
+        switch (option) {
+            case "1":
+                alert("siz 1 tandadynyz");
+                break;
+            case "2":
+                alert("siz 2 tandadynyz");
+                break;
+            case "3":
+                alert("siz 3 tandadynyz");
+                break;
+            default:
+                alert("Qate variant");
+        }*/
+
+        let order = ""
+
+        let burger = prompt("burger tandanyz:" + '\n' + 'a) chicken' + '\n' + 'b) beef' + '\n' + 'c) vegan burger');
+        switch (burger) {
+            case "a": 
+            order += "chicken \n"
+            break;
+            case "b": 
+            order += "beef \n"
+            break;
+            case "c":
+            order += "vegan burger \n"
+            break;
+        }
+        let drink = prompt("susyn tandanyz:" + '\n' + 'a) fanta' + '\n' + 'b) cola' + '\n' + 'c) sprait');
+        switch (drink) {
+            case "a": 
+            order += "fanta \n"
+            break;
+            case "b": 
+            order += "cola \n"
+            break;
+            case "c":
+            order += "sprait \n"
+            break;
+        }
+        let souce = prompt("souce tandanyz:" + '\n' + 'a) syrnyi' + '\n' + 'b) ketchup' + '\n' + 'c) barbeque');
+        switch (souce) {
+            case "a": 
+            order += "syrnyi \n"
+            break;
+            case "b": 
+            order += "ketchup \n"
+            break;
+            case "c":
+            order += "barbeque \n"
+            break;
+        }
+        let fried = prompt("fried tandanyz:" + '\n' + 'a) small' + '\n' + 'b) medium' + '\n' + 'c) large');
+        switch (fried) {
+            case "a": 
+            order += "small \n"
+            break;
+            case "b": 
+            order += "medium \n"
+            break;
+            case "c":
+            order += "large \n"
+            break;
+        }
+
+        alert(order)
+    </script>
+</body>
+</html>

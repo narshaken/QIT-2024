@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = +prompt("0-ден 100 аралығында ұпай енгізіңіз");
+
+
+        if (num < 0 || num > 100) {
+            alert("0-ден 100 аралығында ұпай енгізіңіз!");
+        } else {
+    
+        var baga = (num / 10);  
+
+        switch (baga) {
+            case 10: 
+            case 9:
+                alert("Баға: A");
+                break;
+            case 8:
+                alert("Баға: B");
+                break;
+            case 7:
+                alert("Баға: C");
+                break;
+            case 6:
+                alert("Баға: D");
+                break;
+            default:
+                alert("Баға: F");
+                break;
+        }
+        }
+  
+    </script>
+</body>
+</html>

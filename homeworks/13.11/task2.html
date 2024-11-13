@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let score = 0; 
+
+        let answer1 = prompt("Сұрақ 1: Екіге екі қосқанда неше болады?");
+        if (answer1 === "4") {
+            score += 5; // Д
+        } else {
+            score -= 2; 
+        }
+
+
+        let answer2 = prompt("Сұрақ 2: Қазақстанның астанасы қай қала?");
+        if (answer2 === "астана") {
+            score += 5; 
+        } else {
+            score -= 2; 
+        }
+
+
+        let answer3 = prompt("Сұрақ 3: 5 * 5 неше болады?");
+        if (answer3 === "25") {
+            score += 5; 
+        } else {
+            score -= 2;
+        }
+
+
+        alert("Сіздің қорытынды ұпайыңыз: " + score);
+    </script>
+</body>
+</html>

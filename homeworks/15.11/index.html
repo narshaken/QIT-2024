@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        var correctPassword = "amjilt_the_best";
+        var password;
+        var attempts = 0;
+
+while (password !== correctPassword) {
+    password = prompt("Enter a password: ");
+    attempts++;
+
+    if (password === correctPassword) {
+        alert("Welcome!");
+        break;
+    }
+
+    if (attempts >= 5) {
+        alert("Too many attempts!");
+        break;
+    } else {
+        alert("Қате пароль, қайтадан жазып көр!");
+    }
+}
+
+    </script>
+</body>
+</html>

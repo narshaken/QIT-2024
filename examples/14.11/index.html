@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*let num = 1;
+
+        let q;
+        let result = 0;
+        do {
+            q = +prompt("Baga jaz!")
+            result = result + q
+            num++;
+        } while (num <= 12); 
+        console.log(result / 12)*/
+
+
+
+        /*let num = 1;
+        let students = +prompt("Student sanyn engiz!")
+        let result = 0;
+        while (num <= students) {
+            let grade = +prompt("Enter grade of student number " + num);
+            if (grade < 0 || grade > 5) {
+                grade = +prompt("enter grade only between 0 and 5")
+            }
+            result += grade;
+            num++;
+        }
+        alert(result / students)*/
+
+
+
+
+        /*let num = 0;
+        let resultEven = 0;
+        let resultOdd = 0;
+        let num1 = +prompt("bir san");
+        let num2 = +prompt("eki san");
+
+        for (let i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                resultEven += i;
+            } else {
+                resultOdd += i
+            }
+        }
+        console.log(`taq sandar qosyndysy ${resultOdd} osyndai bolady`)
+        console.log(`jup sandar qosyndysy ${resultEven} osyndai bolady`);*/
+
+
+
+
+
+        /*let resultEven = 0;
+        let resultOdd = 0;
+        let num1 = +prompt("Enter number");
+        let num2 = +prompt("Enter number");
+        let minNum;
+        let maxNum;
+
+        if (num1 > num2) {
+            maxNum = num1;
+            minNum = num2;
+        } else {
+            minNum = num1;
+            maxNum = num2;
+        }
+
+        for (let i = minNum; i <= maxNum; i++) {
+            if (i % 2 == 0) {
+                resultEven += i;
+            } else {
+                resultOdd += i
+            }
+        }
+        console.log(`taq sandar qosyndysy ${resultOdd} osyndai bolady`);
+        console.log(`jup sandar qosyndysy ${resultEven} osyndai bolady`)*/
+
+        
+
+
+        /*for (let i = 1; i <= 30; i++) {
+            if (i % 3 == 0) {
+                console.log(i);
+            }
+        }*/
+
+
+
+
+         /*for (let i = 50; i >= 0; i--) {
+            if (i % 5 == 0) {
+                console.log(i);
+            }
+        }*/ 
+
+
+
+
+        /*for (let i = 1; i <= 15; i++) {
+            if (i % 4 == 0) {
+                continue;
+            }
+            console.log(i);
+        }*/
+
+
+
+
+
+        let num = 1;
+        while (num <= 20) {
+            if (num % 3 == 0 && num % 5 == 0) {
+                console.log("FizzBuzz");
+                break;
+            } else if (num % 3 == 0) {
+                console.log("Fizz");
+            } else if (num % 5 == 0) {
+                console.log("Buzz");
+            } else {
+                console.log(num);
+            }
+            num++;
+        }
+
+
+    </script>
+</body>
+</html>

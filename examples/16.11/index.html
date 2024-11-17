@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*for(let a = 1; a <= 20; a +=2) {
+            console.log(a)
+        }*/
+
+
+
+
+        /*let b = 1;
+
+        while(b <= 20) {
+            console.log(b)
+            b +=2
+        }*/
+
+
+
+        /*for(let i = 2; i <= 50; i+=2) {
+            console.log(i)
+        }*/ 
+
+
+
+
+
+        /*for(let i = 1; i <= 50; i++) {
+            if (i > 19 && i < 41 && (i % 2 == 0)) {
+                continue;
+            }
+            console.log(i)
+        }*/
+
+
+
+
+        /*let num = 1;
+        while (num <= 50) {
+            if (num % 3 == 0 && num % 5 == 0) {
+                console.log("ekeuine de bolinedi");
+            } else if (num % 3 == 0) {
+                console.log("ushke bolinedi");
+            } else if (num % 5 == 0) {
+                console.log("beske bolinedi");
+            } else {
+                console.log(num);
+            }
+            num++;
+        }*/ 
+
+
+
+
+
+        /*let num = 1;
+        let students = +prompt("Student sanyn engiz!")
+        let result = 0;
+        while (num <= students) {
+            let grade = +prompt("Enter grade of student number " + num);
+            if (grade < 0 || grade > 100) {
+                grade = +prompt("enter grade only between 0 and 100")
+            } 
+            result += grade;
+            num++;
+        }
+        alert(result / students)*/
+
+
+
+
+        /*var amount = +prompt("student sanyn engiz!")
+        var max = 0
+        var min = 100
+
+        for (let i = 1; i <= amount; i++) {
+            var baga = +prompt(i + "shi student bagasyn jaz")
+
+            if(baga > max) {
+                max = baga
+            }
+            if(min > baga) {
+                min = baga
+            }
+        }
+
+        alert("minimum " + min + "\n" + "maximum " + max);*/ 
+
+
+
+
+
+        var san = +prompt("san 1-1000")
+        var min = 1000;
+        var max = 0;
+
+        for (let i = 1; i <= san; i++) {
+            if (max < i && i % 12 == 0) {
+                max = i
+            } 
+            if (min > i && i % 12 == 0) {
+                min = i
+            }
+        }
+        alert("minimum " + min + "\n" + "maximum " + max);
+    </script>
+</body>
+</html>

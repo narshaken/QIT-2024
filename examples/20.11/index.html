@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*function cmToKm(number) {
+            return number / 100000 + " km";
+        }
+        console.log(cmToKm(num1))*/ 
+
+
+
+
+
+
+
+        /*let num1 = +prompt("San engiz");
+        let currence = prompt("dollar nemese tenge");
+        
+        function convertMoney(a, b) {
+            if (b == "dollar") { 
+                return a * 495;
+            } else if (b == 'tenge') { 
+                return a / 495;
+            }
+        }
+        alert(convertMoney(num1, currence));*/ 
+
+
+
+
+
+
+        /*const myFunction = function(g) {
+            return g;
+        } //anonim function
+
+        myFunction();*/ 
+
+
+
+
+
+        /*const a = (a, b) => a + b;
+        console.log(a(4, 6));*/
+
+
+
+
+
+       const myBank = () => {
+        let result = 0;
+        let money;
+
+        while (money != 0) {
+            money = +prompt("money engiz");
+            if (money == 0) break;
+            let currence = prompt("USD, KZT, EUR");
+            if (currence == "eur") {
+                result += money;
+            } else if (currence == "usd") {
+                result += money * 0.85;
+            } else if (currence == "kzt") {
+                result += money * 0.002;
+            }
+        }
+        return result;
+       }
+       alert(myBank());
+       
+
+
+        
+    </script>
+</body>
+</html>

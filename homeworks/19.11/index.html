@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calc() {
+            let password = 0;
+            let correctPassword = 55;
+
+            alert("1-den 100-ge deiingi qupia sandy tauyp koriniz!");
+
+            while (password !== correctPassword) {
+                password = +prompt("1-den 100-gе deiingi qupia sandy jazynyz:");
+
+                if (password == correctPassword) {
+                    alert("jaraisyz, siz qupia sandy taptynyz!");
+                    break;
+                } else if (password > correctPassword) {
+                    alert("qupia san kishirek!");
+                } else if (password < correctPassword) {
+                    alert("qupia san ulkenirek!");
+                }
+            }
+        }
+        calc();
+    </script>
+</body>
+</html>

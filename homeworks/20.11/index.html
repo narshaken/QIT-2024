@@ -6,6 +6,51 @@
     <title>Document</title>
 </head>
 <body>
-    <script></script>
+    <script>
+        function calc(distance, unit) {
+    if (unit == "m") {
+        return distance;
+    } else if (unit == "dm") {
+        return distance / 10;
+    } else if (unit == "km") {
+        return distance * 1000;
+    } else {
+        return null; 
+    }
+}
+
+function calc2() {
+    let totalDistance = 0; 
+    alert("qashyqtyq olshem birlikterin engizu: m (метр), dm (дециметр), km (километр).");
+    alert("end bolu ushin 0 dep jaz.\n");
+
+    while (true) {
+        let distance = prompt("qashyqtyq engiz:");
+
+        if (distance - 0 !== distance - 0 || distance == "" || distance == null) {
+            alert("qate, tek on san jaz/durys san");
+            continue; 
+        }
+
+        distance = +distance; 
+        if (distance == 0) {
+            break; 
+        }
+
+        let unit = prompt("bireuin engiz (m, dm, km)");
+        if (unit == "m" || unit == "dm" || unit == "km") {
+            const converted = calc(distance, unit);
+            totalDistance += converted; 
+            alert("metrge ainalgan qashyqtyq: " + converted + " м");
+        } else {
+            alert("qate: olshem birligin durys engiz(m, dm, km)");
+        }
+    }
+
+    alert("barlyq qashyqtyqtyn metrdegi qosyndysy: " + totalDistance + " м");
+}
+calc2();
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function secretNumber() {
+    const number = 55;
+
+    while (true) {
+        let num1 = +prompt("1-den 100-ge deiingi qupia sandy tap (nemese 0 jazyp, shyguga bolady):");
+
+        if (num1 == 0) {
+            alert("oyin ayaqtaldy");
+            break;
+        }
+
+        if (num1 < 1 || num1 > 100) {
+            alert("1-den 100-ge deiingi san jaz");
+            continue;
+        }
+
+        if (num1 == number) {
+            alert("taptynyz!");
+            break;
+        } else if ((num1 - number) <= 5 && (number - num1) <= 5) {
+            alert("ote jaqyn"); 
+        } else {
+            alert("alys");
+        }
+    }
+}
+secretNumber();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calc() {
+            let arr = [];
+            while (true) {
+                let num = +prompt("san engiziniz!");
+
+                if (num % 2 == 0) {
+                    arr.push(num);
+                } else {
+                    alert("taq san engizildi, cikl aiaqtalady");
+                    break;
+                }
+            }
+            console.log(arr);
+        }
+        calc()
+    </script>
+</body>
+</html>

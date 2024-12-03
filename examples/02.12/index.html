@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*let numbers = [4, 7, 5, 10, 3, 12];
+
+        function moreThan(num, array) {
+            return array.filter((element) => element > num);
+        }
+
+        function sumOfElements(array) {
+            return array.reduce((total, element) => total + element, 0);
+        }
+
+        function average(array) {
+            return sumOfElements(array) / array.length;
+        }
+
+        console.log('barlyq sandar qosyndysy ' + sumOfElements(numbers));
+        console.log('arifmetikalyq ortasy ' + average(numbers));*/ 
+
+
+
+
+
+
+
+        //shyqpai tur
+        /*let numbers = [4, 7, 5, 10, 3, 12];
+
+        function moreThan(array) {
+            let num = +prompt('san jaz');
+            return array.filter((element) => element > num);
+        }
+
+        function sumOfElements(array) {
+            return array.reduce((total, element) => total + element, 0);
+        }
+
+        function average(array) {
+            return sumOfElements(array) / array.length;
+        }
+
+        function addNumber (array) {
+            let number = +prompt("san engiz");
+            array.push(number);
+            return array;
+        }
+
+        function menu() {
+            while (true) {
+                let choice = +prompt(numbers + '\n1) sandar qosyndysyn tabu\n2) ortasha manin tabu\n3) sandardy suzip alu\n4) sandar qosu\n5) shygu');
+
+                switch (choice) {
+                    case 1:
+                        alert(sumOfElements(numbers));
+                        break;
+                    case 2: 
+                        alert(average(numbers));
+                        break;
+                    case 3:
+                        alert(moreThan(numbers));
+                        break;
+                    case 4:
+                        addNumber(numbers);
+                        break;
+                    case 5:
+                        return;
+                }
+            }
+        }*/ 
+
+
+
+
+        /*const car = {
+            brand: "Toyota",
+            model: "Camry",
+            year: 2020,
+            color: 'black',
+            isOk: true,
+            country: "Japan",
+        };
+
+        car.isOk = false;
+        car.owners = 5;
+        console.log(car);
+
+        console.log(`${car.brand} ${car.model} koligi ${car.year} jyly ${car.country} elinde jaryq kordi`);*/ 
+
+
+
+
+
+
+        /*const calculator = {
+            plus: function (a, b) {
+                return a + b;
+            },
+            minus: function (a, b) {
+                return a - b;
+            },
+            multiplication: function (a, b) {
+                return a * b;
+            },
+        };
+
+        console.log(calculator.plus(3, 5));
+        console.log(calculator.minus(3, 4));
+        console.log(calculator.multiplication(2, 5));*/
+        
+        
+
+
+
+        /*const calculator = {
+            plus: function (a, b) {
+                return a + b;
+            },
+            minus: function (a, b) {
+                return a - b;
+            },
+            multiplication: function (a, b) {
+                return a * b;
+            },
+        };
+
+
+        function menu() {
+            let num1 = +prompt("1");
+            let num2 = +prompt("2");
+            let test = prompt("minus/plus/multi");
+
+            switch (test) {
+                case "minus":
+                    alert(calculator.minus(num1, num2));
+                    break;
+                case "plus":
+                    alert(calculator.plus(num1, num2));
+                    break;
+                case "multiplication":
+                    alert(calculator.multiplication(num1, num2));
+                    break;
+            }
+        }
+        menu()*/ 
+
+
+
+
+
+        /*const product = {
+            name: "kiim juatyn mashina",
+            rating: 5,
+            price: 294990,
+            discount: function(percent) {
+                return this.price - (this.price * percent) / 100;
+            }
+        }
+        console.log(product.discount(16.99));*/ 
+
+
+
+
+
+        /*const person = {
+            name: "Nar",
+            age: 19,
+            company: "Kazakhmys",
+            greet: function() {
+                return `hello, my name is ${this.name}, I am ${this.age} years old, currently working in ${this.company}`
+            }
+        }
+        console.log(person.greet())*/ 
+
+
+
+
+        /*const restaurantMenu = {
+            items: ['pizza', 'burger', 'cola', 'ramen'],
+            printMenu: function() {
+                return this.items.join("\n");
+            },
+            addItem: function() {
+                this.items.push('tokpokki', 'pasta')
+            }
+        }
+        restaurantMenu.addItem();
+        console.log(restaurantMenu.printMenu());*/ 
+
+
+
+
+
+        const restaurantMenu = {
+            items: [
+                {
+                    name: 'pizza',
+                    price: 2.5,
+                    weight: 500,
+                },
+                {
+                    name: 'pasta',
+                    price: 10,
+                    weight: 450,
+                }
+            ],
+        }
+       
+        restaurantMenu.items.push({
+            name: "ramen",
+            price: 45,
+            weight: 600,
+        });
+
+        console.log(restaurantMenu.items)
+
+
+    </script>
+</body>
+</html>

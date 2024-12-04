@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //tapsyrma 1
+    const students = [
+        { name: "Ali", age: 15, grades: [85, 90, 78] },
+        { name: "Amina", age: 14, grades: [88, 76, 92] },
+        { name: "Bek", age: 16, grades: [95, 85, 80] }
+    ];
+    
+    function calculateAverageGrade(studentName) {
+        const student = students.find(s => s.name === studentName);
+        const total = student.grades.reduce((sum, grade) => sum + grade, 0);
+        const average = total / student.grades.length;
+        return average;
+    }
+    console.log(calculateAverageGrade("Ali"));
+
+
+
+
+
+    //tapsyrma 2
+    const library = {
+        books: [
+            {title: "Ер Төстік", author: "Қазақ ертегілері", available: true },
+            {title: "Алтын адам", author: "Нұрлан Есім", available: false },
+        ],
+        borrowBook: function (title) {
+            const book = this.books.find(b => b.title === title);
+            if (!book) {
+                console.log(`Bul "${title}" kitaby tabylmady`);
+                return;
+            }
+            if (book.available) {
+                book.available = false;
+                console.log(`Siz "${title}" kitabyn aldynyz.`);
+            } else {
+               console.log(`Bul kitap "${title}" dostupnyi emes.`);
+            }
+        }
+    };
+    library.borrowBook("Ер Төстік"); 
+    library.borrowBook("Алтын адам"); 
+    library.borrowBook("Unknown Book"); 
+    </script>
+</body>
+</html>

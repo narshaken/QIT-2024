@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1
+const city = {
+  name: "Алматы",
+  population: 2000000,
+  districts: [
+    { name: "Бостандық", population: 300000 },
+    { name: "Алмалы", population: 250000 },
+    { name: "Аlatau", population: 450000 },
+    { name: "Lalala", population: 150000 },
+  ],
+};
+
+//2
+const schools = [
+  {
+    name: "№1 мектеп",
+    district: "Алмалы",
+    students: 500,
+  },
+  {
+    name: "№2 мектеп",
+    district: "Бостандық",
+    students: 700,
+  },
+  {
+    name: "№45 мектеп",
+    district: "Alatau",
+    students: 1000,
+  },
+];
+
+
+schools.push({
+  name: "№3 мектеп",
+  district: "Медеу",
+  students: 600,
+});
+
+
+function updateSchoolStudents(schoolName, newStudentCount) {
+  const school = schools.find((s) => s.name === schoolName);
+  if (school) {
+    school.students = newStudentCount;
+  }
+}
+updateSchoolStudents("№1 мектеп", 550);
+
+
+function calculateTotalCityPopulation(cityObj) {
+  let totalDistrictPopulation = cityObj.districts.reduce(
+    (sum, district) => sum + district.population,
+    0
+  );
+  return totalDistrictPopulation;
+}
+
+
+function calculateTotalStudents(schoolArray) {
+  return schoolArray.reduce((sum, school) => sum + school.students, 0);
+}
+
+console.log("Қаланың жалпы аудандардағы халық саны:", calculateTotalCityPopulation(city));
+console.log("Барлық мектептердің оқушы саны:", calculateTotalStudents(schools));
+
+
+function findDistrictByName(cityObj, districtName) {
+  return cityObj.districts.find((district) => district.name === districtName);
+}
+
+console.log("Алмалы ауданының деректері:", findDistrictByName(city, "Алмалы"));
+    </script>
+</body>
+</html>

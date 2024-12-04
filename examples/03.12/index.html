@@ -23,7 +23,151 @@
 
         console.log(book.readBook());
         console.log(book.toggleReadStatus ? 'siz osy kitapty oqygansyz' : 'siz bul kitapty oqymagansyz');*/ 
+
+
+
+
+
+
+        /*const book = {
+            title: "Ospan batyr",
+            author: "Zhadi Shakenuly",
+            pages: 1000,
+            isRead: false,
+            readBook: function() {
+                return `siz ${this.author} avtorynyn ${this.title} kitabyn oqyp jatsyz, difficulty: ${this.hardLevel()}`;
+            },
+            toggleReadStatus: function() {
+                this.isRead = !this.isRead; 
+                return this.isRead;
+            },
+            hardLevel: function () {
+                if (this.pages <= 200) {
+                    return "easy"
+                } else if (this.pages > 200 && this.pages < 500) {
+                    return "middle"
+                } else {
+                    return "hard"
+                }
+            }
+        };
+
+        console.log(book.readBook());
+        console.log(book.toggleReadStatus ? 'siz osy kitapty oqygansyz' : 'siz bul kitapty oqymagansyz');*/ 
+
+
+
+
+
+
+        /*const user = {
+            name: "Nar",
+            age: 19,
+            hobbies: ['oiyndar', 'kitap oqu', 'volleyball', 'tamaq pisiru'],
+            listHobbies: function () {
+                return this.hobbies.join('\n')
+            },
+        };
+
+        function addHobbies() {
+            let newHobby = prompt("enter hobby");
+            user.hobbies.push(newHobby);
+            console.log(user.listHobbies());
+        }
+
+        function listShortHobbies() {
+            return user.hobbies.filter(hobby => hobby.length < 12)
+        }
+
+        console.log(listShortHobbies());*/ 
+
+
+
+
+
+
+        /*const user = {
+            name: "Nar",
+            age: 19,
+            hobbies: [
+                {name: 'atqa minu', year: 2013},
+                {name: 'cooking', year: 2010},
+                {name: 'game', year: 2015},
+                {name: 'lalalaok', year: 2020},
+            ],
+            addHobby: function (newHobby) {
+                this.hobbies.push(newHobby);
+            },
+            listHobbies: function () {
+                return this.hobbies.filter((hobby) => hobby.year > 2010);
+            }
+        };
         
+        function addNewHobby() {
+            let hobbyName = prompt("enter hobby name: ");
+            let hobbyYear = +prompt("enter hobby start year: ");
+            let newHobby = {
+                name: hobbyName,
+                year: hobbyYear,
+            }
+            user.addHobby(newHobby);
+        };
+       
+        console.log(user.listHobbies());*/ 
+
+
+
+
+
+
+        /*const team = {
+            name: 'barselona',
+            members: [
+                {name: 'bauyrjan', hobbies: ['golf', 'football']},
+                {name: 'aika', hobbies: ['drawing', 'singing']},
+                {name: 'leila', hobbies: ['surf', 'basketball']},
+            ],
+        };
+        console.log(team.members[1].hobbies[0]);*/
+
+
+
+
+        //aiaqtalmady
+        /*const team = {
+            name: 'barselona',
+            members: [
+                {name: 'bauyrjan', hobbies: ['golf', 'football']},
+                {name: 'aika', hobbies: ['drawing', 'singing']},
+                {name: 'leila', hobbies: ['surf', 'basketball']},
+            ],
+        };
+        console.log(team.members.flatMap(member => member)) */
+
+
+
+
+
+        const all = {
+            name: 'synyp',
+            members: [
+                {name: 'Asem', jasy: 19, subject: ['english', 'history']},
+                {name: 'Maryam', jasy: 19, subject: ['chemistry', 'biology']},
+                {name: 'Tolganai', jasy: 19, subject: ['math', 'math']},
+                {name: 'Jadyra', jasy: 22, subject: ['chemistry', 'history']},
+                {name: 'Aziza', jasy: 16, subject: ['english', 'russian']},
+                {name: 'Aidana', jasy: 18, subject: ['math', 'history']},
+                {name: 'Qamargul', jasy: 22, subject: ['english', 'history']},
+                {name: 'Nurila', jasy: 28, subject: ['english', 'history']},
+                {name: 'Asubek', jasy: 19, subject: ['math', 'biology']},
+                {name: 'Azamat', jasy: 16, subject: ['math', 'fizika']},
+                {name: 'Erkebulan', jasy: 18, subject: ['english', 'history']},
+                {name: 'Zeiin', jasy: 19, subject: ['english', 'history']},
+            ],
+        }
+        console.log(all.members)
+        
+
     </script>
 </body>
 </html>

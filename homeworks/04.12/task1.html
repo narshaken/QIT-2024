@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const obj = {a: 1, b: 2, c: 3, d: 4};
+    const sum = Object.values(obj).reduce((acc, value) => acc + value, 0);
+    console.log("qosyndy:", sum);
+
+
+    const obj1 = {a: 1, b: 2};
+    const obj2 = {c: 3, d: 4};
+    const mergedObj = {...obj1, ...obj2};
+    console.log("biriktiru:", mergedObj);
+
+
+    const students = [
+        {id: 1, name: "A"},
+        {id: 2, name: "A"},
+        {id: 3, name: "A"},
+        {id: 4, name: "A"},
+        {id: 5, name: "A"},
+    ];
+    const evenStudents = students.filter(student => student.id % 2 === 0);
+    const oddStudents = students.filter(student => student.id % 2 !== 0);
+    console.log("jup nomerdegi studentter:", evenStudents);
+    console.log("taq nomerdegi studentter:", oddStudents);
+
+
+    const library = {
+        name: 'Alatau HUB',
+        books: [
+            { name: 'book A', pages: 300 },
+            { name: 'book B', pages: 100 },
+            { name: 'book C', pages: 340 },
+            { name: 'book D', pages: 1000 },
+        ],
+    };
+
+
+    const averagePages = library.books.reduce((acc, book) => acc + book.pages, 0) / library.books.length;
+    console.log("ortasha bet sany:", averagePages);
+
+
+    const minPagesBook = library.books.reduce((min, book) => book.pages < min.pages ? book : min);
+    const maxPagesBook = library.books.reduce((max, book) => book.pages > max.pages ? book : max);
+    console.log("en az bet sany bar kitap:", minPagesBook);
+    console.log("en kop bet sany bar kitap:", maxPagesBook);
+    </script>
+</body>
+</html>

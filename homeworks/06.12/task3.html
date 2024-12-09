@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let students = [
+    { name: "Aidar", age: 20, grade: "A" },
+    { name: "Dana", age: 18, grade: "B" },
+    { name: "Bolat", age: 22, grade: "C" },
+    { name: "Akmaral", age: 19, grade: "B+" },
+    { name: "Erlan", age: 21, grade: "A-" }
+];
+
+students.sort((a, b) => a.age - b.age);
+
+let youngest = students[0];
+let oldest = students[students.length - 1];
+
+alert(`Ең жас студент: \n Аты: ${youngest.name}, Жасы: ${youngest.age}, Бағасы: ${youngest.grade}`);
+alert(`Ең үлкен студент: \n Аты: ${oldest.name}, Жасы: ${oldest.age}, Бағасы: ${oldest.grade}`);
+    </script>
+</body>
+</html>

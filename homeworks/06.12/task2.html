@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let books = [
+  { title: "harry potter", author: "lalalal", year: 1925 },
+  { title: "apple", author: "Harper Lee", year: 1960 },
+  { title: "1984", author: "George Orwell", year: 1949 }
+];
+
+let bookTitle = prompt("Қандай кітапты іздейсіз?");
+let bookFound = books.find(book => book.title.toLowerCase() === bookTitle.toLowerCase());
+
+if (bookFound) {
+  let newYear = prompt(`\"${bookFound.title}\" кітабының жаңа жылын енгізіңіз:`);
+  if (newYear && !isNaN(newYear)) {
+    bookFound.year = parseInt(newYear, 10);
+    alert(`\"${bookFound.title}\" кітабының жылы ${bookFound.year} болып жаңартылды.`);
+  } else {
+    alert("Дұрыс жыл енгізіңіз.");
+  }
+} else {
+  alert("Бұл кітап массивте жоқ.");
+}
+
+let updatedBooksInfo = books.map(book => `${book.title} - ${book.author} (${book.year})`).join("\n");
+alert("Барлық кітаптар:\n" + updatedBooksInfo);
+
+    </script>
+</body>
+</html>

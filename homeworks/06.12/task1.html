@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+const people = [];
+
+for (let i = 0; i < 3; i++) {
+  const name = prompt(`Адам ${i + 1}-нің атын енгізіңіз:`);
+  const age = prompt(`${name}-нің жасын енгізіңіз:`);
+
+  people.push({ name, age });
+}
+
+people.forEach(person => {
+  alert(`Аты: ${person.name}, Жасы: ${person.age}`);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "heading">Welcome, students!</h1>
+
+    <div class="box">div1</div>
+    <div class="box">div2</div>
+    <div class="box">div3</div>
+    <div class="box">div4</div>
+
+
+    <script>
+        const heading = document.getElementById("heading");
+        console.log(heading.textContent);
+
+        /*const boxes = document.getElementsByClassName("box");
+        console.log(boxes[0].textContent) 
+        
+        
+        const boxes = document.getElementsByClassName("box");
+        for (let i = 0; i < boxes.length; i++) {
+            console.log(boxes[i].textContent);
+        }*/
+
+
+        //birinshi elementti korsetedi
+        const firstBox = document.querySelector('.box');
+        console.log(firstBox.textContent);
+
+
+        //barlyq elementti alady
+        const boxes = document.querySelectorAll(".box");
+        boxes.forEach((box) => console.log(box.textContent));
+
+
+        firstBox.innerHTML = '<b>hello</b>';
+        boxes[1].innerHTML = '<i>goodbye</i>';
+        heading.textContent = 'Kazakhstan'
+    </script>
+</body>
+</html>

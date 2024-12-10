@@ -1,0 +1,20 @@
+.card {
+    background-color: rgb(184, 128, 237);
+    text-align: center;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#news-link {
+    text-decoration: none;
+    color: white;
+    font-size: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body {
+    height: 700px;
+}
+.card:hover {
+    background-color: brown;
+}

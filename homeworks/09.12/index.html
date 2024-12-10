@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const library = {
+    name: "Орталық кітапхана",
+    address: "Алматы қаласы, Абай көшесі, 45",
+    books: [
+        { title: "Жүз жылдық жалғыздық", author: "Габриэль Гарсиа Маркес", year: 1967, isAvailable: true },
+        { title: "Сиқырлы тау", author: "Томас Манн", year: 1924, isAvailable: false },
+        { title: "Соғыс және бейбітшілік", author: "Лев Толстой", year: 1869, isAvailable: true }
+    ]
+};
+
+function changeLibraryName() {
+    const newName = prompt("Кітапхананың жаңа атауын енгізіңіз:");
+    if (newName) {
+        library.name = newName;
+        alert(`Кітапхананың атауы жаңартылды: ${library.name}`);
+    }
+}
+
+function changeLibraryAddress() {
+    const newAddress = prompt("Кітапхананың жаңа мекенжайын енгізіңіз:");
+    if (newAddress) {
+        library.address = newAddress;
+        alert(`Кітапхананың мекенжайы жаңартылды: ${library.address}`);
+    }
+}
+
+function listAvailableBooks() {
+    const availableBooks = library.books.filter(book => book.isAvailable);
+    if (availableBooks.length > 0) {
+        alert("Қолжетімді кітаптар:\n" + availableBooks.map(book => book.title).join("\n"));
+    } else {
+        alert("Қолжетімді кітаптар жоқ.");
+    }
+}
+
+function addBook() {
+    const title = prompt("Кітаптың атауын енгізіңіз:");
+    const author = prompt("Кітаптың авторын енгізіңіз:");
+    const year = parseInt(prompt("Кітаптың басылып шыққан жылын енгізіңіз:"), 10);
+    const isAvailable = confirm("Кітап қолжетімді ме? ОК - Иә, Болдырмау - Жоқ");
+
+    if (title && author && year) {
+        library.books.push({ title, author, year, isAvailable });
+        alert("Кітап сәтті қосылды!");
+    } else {
+        alert("Кітапты қосу барысында қате кетті.");
+    }
+}
+
+function toggleBookAvailability() {
+    const title = prompt("Қолжетімділік мәртебесін өзгерту үшін кітаптың атауын енгізіңіз:");
+    const book = library.books.find(book => book.title.toLowerCase() === title.toLowerCase());
+
+    if (book) {
+        book.isAvailable = !book.isAvailable;
+        alert(`Кітаптың қолжетімділік мәртебесі өзгертілді: ${book.title} - ${book.isAvailable ? "Қолжетімді" : "Қолжетімді емес"}`);
+    } else {
+        alert("Кітап табылмады.");
+    }
+}
+
+function menu() {
+    let choice;
+    do {
+        choice = prompt(`Мәзір:\n1. Кітапхананың атауын өзгерту\n2. Мекенжайын өзгерту\n3. Қолжетімді кітаптарды шығару\n4. Жаңа кітап қосу\n5. Кітаптың қолжетімділік мәртебесін өзгерту\n6. Шығу\nТаңдауыңызды енгізіңіз:`);
+
+        switch (choice) {
+            case "1":
+                changeLibraryName();
+                break;
+            case "2":
+                changeLibraryAddress();
+                break;
+            case "3":
+                listAvailableBooks();
+                break;
+            case "4":
+                addBook();
+                break;
+            case "5":
+                toggleBookAvailability();
+                break;
+            case "6":
+                alert("Бағдарлама аяқталды.");
+                break;
+            default:
+                alert("Қате таңдау. Қайтадан енгізіңіз.");
+        }
+    } while (choice !== "6");
+}
+
+menu();
+    </script>
+</body>
+</html>

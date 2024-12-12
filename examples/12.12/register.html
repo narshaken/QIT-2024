@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registerForm" title="Register">
+        <input type="text" id="name" placeholder="enter your name"> 
+        <h5 id="status"></h5>
+        <p id="helperText"></p>
+
+
+
+
+        <input type="text" id="liveInput" placeholder="text jaz">
+        <p>siz jazdynyz: <span id="liveOutput"></span></p>
+    </form>
+
+
+
+    <script>
+        const nameField = document.getElementById("name");
+        const helperText = document.getElementById("helperText");
+        const statusText = document.getElementById("status")
+
+        nameField.addEventListener("focus", () => {
+            if (nameField.value == '') helperText.textContent = 'atynyzdy tolyq jazynyz'
+        });
+        nameField.addEventListener("blur", () => {
+            if (nameField.value !== '') {
+                helperText.textContent = '';
+                statusText.style.color = 'green';
+                statusText.textContent = 'durys'
+            } 
+        });
+
+
+        const liveInput = document.getElementById("liveInput");
+        const liveOutput = document.getElementById('liveOutput');
+
+        liveInput.addEventListener("input", () => {
+            liveOutput.textContent = liveInput.value;
+        });
+    </script>
+</body>
+</html>

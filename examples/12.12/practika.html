@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registerForm" title="Register">
+        <input type="text" id="name" placeholder="enter your name"><br>
+        <input type="email" id="email" placeholder="enter your email"><br>
+        <input type="password" id="password" placeholder="enter your password"><br>
+
+        <input type="password" id="confirmPassword" placeholder="confirm password"><br>
+
+
+        <button type="submit" style="width: 100px; height: 30px;">click-clack</button>
+        <p id="errorMessage"></p>
+    </form>
+
+
+
+
+    <script>
+        const registerForm = document.getElementById("registerForm");
+
+        registerForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            let nameValue = document.getElementById("name").value;
+            let emailValue = document.getElementById("email").value;
+            let passwordValue = document.getElementById("password").value;
+            let confirmPasswordValue = document.getElementById("confirmPassword").value;
+
+            if (nameValue == '') {
+                errorMessage.textContent = 'atynyz bos bolmauy kerek'
+            } else if (!emailValue.includes("@")) {
+                errorMessage.textContent = 'email durys engiziniz @men'
+            } else if (passwordValue.length < 6) {
+                errorMessage.textContent = '6 sannan uzyn password engiz'
+            } else if (passwordValue !== confirmPasswordValue) {
+                errorMessage.textContent = 'passwordtar saikes emes'
+            } else {
+                alert("jaraisyn")
+            }
+        });
+    </script>
+</body>
+</html>

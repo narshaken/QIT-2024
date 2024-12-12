@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="loginForm">
+        <input 
+        type="email"
+        id="email"
+        required
+        placeholder="enter your email">
+        <input 
+        type="password"
+        id="password"
+        required
+        placeholder="enter your password">
+        <button type="submit">kiru</button>
+        <p id="errorMessage" style="color: red"></p>
+    </form>
+
+
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const errorMessage = document.getElementById("errorMessage");
+
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            let emailValue = document.getElementById("email").value;
+            let passwordValue = document.getElementById("password").value;
+
+            console.log({emailValue, passwordValue});
+
+            if (!emailValue.includes('@')) {
+                errorMessage.textContent = 'email qate engizildi'
+            } else if (passwordValue.length < 6) {
+                errorMessage.textContent = 'qupia soz keminde 6 simvoldan turuy kerek'
+            } else {
+                errorMessage.style.color = 'green'
+                errorMessage.textContent = 'forma satti turde jiberildi'
+                window.location.href = 'task.html'
+            }
+        });
+    </script>
+</body>
+</html>

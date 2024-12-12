@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 2px solid black;
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+
+    <ul>
+        <li class="red">element1</li>
+        <li class="red">element2</li>
+        <li class="red">element3</li>
+    </ul>
+    <script>
+        const box = document.querySelector("#box");
+        box.addEventListener("mouseenter", function() {
+            box.style.backgroundColor = 'lightblue'
+        });
+
+        box.addEventListener("mouseleave", function() {
+            box.style.backgroundColor = 'white'
+        });
+
+
+
+
+
+        const reds = document.querySelectorAll(".red");
+
+        for (let red of reds) {
+            red.addEventListener("click", () => {
+                red.style.color = 'red';
+            });
+        }
+        
+    </script>
+</body>
+</html>

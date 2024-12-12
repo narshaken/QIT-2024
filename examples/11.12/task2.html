@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #container {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            background-color: lightgreen;
+        }
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+        <button id="one">Tusti ozgertu</button>
+        <button id="two">Qalpyna keltiru</button>
+
+    <script>
+        const container = document.querySelector("#container");
+        container.addEventListener("mouseenter", function() {
+            container.style.backgroundColor = 'yellow'
+        });
+        container.addEventListener("mouseleave", function() {
+            container.style.backgroundColor = 'lightgreen'
+        });
+
+        const one = document.querySelector("#one");
+        one.addEventListener("click", function() {
+            container.style.backgroundColor = 'purple'
+        });
+        const two = document.querySelector("#two");
+        two.addEventListener("click", function() {
+            container.style.backgroundColor = 'lightgreen'
+        });
+    </script>
+</body>
+</html>

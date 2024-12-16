@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма оқиғалары</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input.button {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Форма оқиғалары</h1>
+    <label for="name">aty joni:</label>
+    <input type="text" id="name" oninput="showName()" placeholder="esiminizdi engiziniz">
+    <p>siz engizip jatsyz: <span id="output"> </span></p>
+    <button onclick="submitForm()">jiberu</button>
+
+    <script>
+        function showName() {
+            const nameInput = document.getElementById("name").value;
+            document.getElementById("output").innerText = nameInput;
+        }
+
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            if (name) {
+                alert("sizdin engizgen esiminiz: " + name);
+            } else {
+                alert("aty joninizdi engiziniz!");
+            }
+        }
+    </script>
+</body>
+</html>

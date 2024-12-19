@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+    </div>
+    <script>
+        const data = [
+            {title: '"Abai joly" - Muhtar Auezov',
+            description: 'Abaidyn omiri men  qazaq qogamynyn tarihi shejiresi'},
+            {title: '"Qan men ter" - Abdijamal Nurpeisov',
+            description: 'Abaidyn omiri men  qazaq qogamynyn tarihi shejiresi'},
+            {title: '"Abai joly" - Muhtar Auezov',
+            description: 'Abaidyn omiri men  qazaq qogamynyn tarihi shejiresi'},
+            {title: '"Abai joly" - Muhtar Auezov',
+            description: 'Abaidyn omiri men  qazaq qogamynyn tarihi shejiresi'},
+        ];
+        const container = document.getElementById("container");
+        data.forEach(item => {
+            const card = document.createElement("div");
+            card.className = 'card';
+            card.style.display = 'grid';
+            card.style.width = '200px';
+            card.style.border = '2px solid black';
+            card.style.padding = '10px';
+
+            const title = document.createElement('h2');
+            title.textContent = item.title;
+            title.style.color = 'white';
+            title.style.background = 'black';
+
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            description.style.fontSize = '25px';
+            description.style.fontFamily = 'Arial'
+
+
+
+            const button = document.createElement("button");
+            button.textContent = 'delete';
+
+            card.appendChild(button);
+            card.appendChild(title);
+            container.appendChild(card);
+            card.appendChild(description);
+
+            button.addEventListener('click', () => {
+                card.remove();
+            })
+        })
+    </script>
+</body>
+</html>

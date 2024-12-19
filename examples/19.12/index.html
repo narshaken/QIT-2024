@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My first todo form</h1>
+    <div>
+        <input id="taskInput" type="text" placeholder="janadan tapsyrma qosu">
+        <button id="addButton">+</button><br>
+        <input id="searchInput" type="text" placeholder="tapsyrmany tizimnen izdeu">
+        <button id="searchButton">izdeu</button>
+    </div>
+
+    <ul id="todoList">
+    </ul>
+    <script>
+        const todoList = document.getElementById("todoList");
+        const addButton = document.getElementById("addButton");
+        const searchButton = document.getElementById("searchButton");
+
+        addButton.addEventListener("click", () => {
+            const taskInput = document.getElementById("taskInput");
+
+            if (taskInput.value !== '') {
+            const task = document.createElement('li');
+            const span = document.createElement("span");
+            const deleteButton = document.createElement("button");
+
+            deleteButton.textContent = 'delete';
+            span.textContent = taskInput.value;
+            taskInput.value = '';
+
+            task.appendChild(span);
+            todoList.appendChild(task);
+            task.appendChild(deleteButton);
+            }
+
+            console.log(taskInput.value);
+        });
+    </script>
+</body>
+</html>

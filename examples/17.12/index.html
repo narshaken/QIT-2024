@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 300vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #registerForm {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 20px 15px;
+            gap: 20px;
+            border: black 1.5px solid;
+            border-radius: 10px;
+        }
+        #registerForm input[type='text'] {
+            width: 300px;
+            height: 30px;
+        }
+        #errorMessage {
+            background-color: red;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            position: absolute;
+            transform: translateY(-100vh);
+            transition: all 0.5s;
+        }
+        .arrow {
+            position: fixed;
+            top: 70vh;
+            left: 3%;
+            width: 40px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 100%;
+            transition: all 0.5s;
+        }
+        .box {
+            font-size: 20px;
+            width: 500px;
+            padding: 10px;
+            background-color: aliceblue;
+            margin: 0 auto;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="errorMessage">this is example</div>
+        <form id="registerForm">
+            <h1>zaiavka</h1>
+            <input type="text" placeholder="name" id="name">
+            <input type="text" placeholder="surname" id="surname">
+
+            <h2>jynysynyz</h2>
+            <label for="gender"><input type="radio" name="gender" id="gender" value="male">er adam</label>
+            <label for="gender"><input type="radio" name="gender" id="gender" value="female">aiel adam</label>
+
+            <select id="time">
+                <option value="morning">morning</option>
+                <option value="afternoon">afternoon</option>
+                <option value="evening">evening</option>
+            </select>
+
+            <button type="submit">jiberu</button>
+        </form>
+    </div>
+
+    <p class="box">laslsa,clclclcldsddihvbisdfhbrihgrfyvc 
+        sdgnsdjfjksdbkjvbsdkbsdfkvbsfkdvbfhkbvkhfvbkfbvkf
+        bvjkfdbvkfdbv
+        uefvgbghjkfihgfjdhjfhjhfkjdhfhkfhkjfghfdkghdfjkgh
+        fkhgkfdhg
+        fhgkjfghfkghfkgfkgfkghfdjghfddghfdkgjhfdddghfdgh
+        fkghfkghfjkghfj
+        ghfkjghfkghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+        hhhhhhhhhhhh
+        hjkdffffffffffffffffffffffffffffffffffkkkkkkk
+        kkkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkkkkttttttttttttttttttttttttttttt
+        tttttttuuuuuuuuu
+        uuuuuuuuuuuuuueeeeeeeeeeeeeeeeeeeeeeeeeeeeppp
+        pppppppppppppppperjtpitrjgitrjgptrjgjtr
+        erpgjprejg;trjgptrjgktgjgtkg
+        erlkgnerpjgptrjgpktrgpktrjgptrjhpgjtrph
+        kgpkrjgktrsjgpktjbktsrjbktrgblktrmjbotr</p>
+
+    <a href="#top" id="up">
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"> <path d="M6.4569 9.73276C6.17123 10.0327 6.18281 10.5074 6.48276 10.7931C6.78271 11.0788 7.25744 11.0672 7.5431 10.7672L6.4569 9.73276ZM12.5431 5.51724C12.8288 5.21729 12.8172 4.74256 12.5172 4.4569C12.2173 4.17123 11.7426 4.18281 11.4569 4.48276L12.5431 5.51724ZM12.5431 4.48276C12.2574 4.18281 11.7827 4.17123 11.4828 4.4569C11.1828 4.74256 11.1712 5.21729 11.4569 5.51724L12.5431 4.48276ZM16.4569 10.7672C16.7426 11.0672 17.2173 11.0788 17.5172 10.7931C17.8172 10.5074 17.8288 10.0327 17.5431 9.73276L16.4569 10.7672ZM12.75 5C12.75 4.58579 12.4142 4.25 12 4.25C11.5858 4.25 11.25 4.58579 11.25 5H12.75ZM11.25 19C11.25 19.4142 11.5858 19.75 12 19.75C12.4142 19.75 12.75 19.4142 12.75 19H11.25ZM7.5431 10.7672L12.5431 5.51724L11.4569 4.48276L6.4569 9.73276L7.5431 10.7672ZM11.4569 5.51724L16.4569 10.7672L17.5431 9.73276L12.5431 4.48276L11.4569 5.51724ZM11.25 5V19H12.75V5H11.25Z" fill="#000000"></path> </g></svg>
+    </a>
+
+    <script>
+        const errorMessage = document.getElementById("errorMessage");
+        const registerForm = document.getElementById("registerForm");
+
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const nameValue = document.getElementById("name").value;
+            const surnameValue = document.getElementById("surname").value;
+            const timeValue = document.getElementById("time").value;
+
+            if (nameValue == '' || surnameValue == "" || timeValue == "") {
+                errorMessage.style.transform = 'translateY(-40vh)';
+                errorMessage.textContent = 'barlyq joldy toltyru kerek'
+            }
+        });
+
+
+
+        const arrow = document.getElementById("up");
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                arrow.style.display = 'block';
+            } else {
+                arrow.style.display = 'none';
+            }
+        })
+    </script>
+</body>
+</html>

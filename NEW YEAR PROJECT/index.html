@@ -27,7 +27,51 @@
             </div>
         </div>
     </header>
-    <main></main>
+    <main>
+      <div class="time">
+        <h1>Until the New Year:</h1>
+    <div id="countdown">
+        <div class="time-block">
+            <span id="days">0</span>
+            <label>Days</label>
+        </div>
+        <div class="time-block">
+            <span id="hours">0</span>
+            <label>Hours</label>
+        </div>
+        <div class="time-block">
+            <span id="minutes">0</span>
+            <label>Minutes</label>
+        </div>
+        <div class="time-block">
+            <span id="seconds">0</span>
+            <label>Seconds</label>
+        </div>
+    </div>
+      </div>
+  
+      <div class="arrivals">
+        <h1>New Arrivals</h1>
+        <div class="tabs">
+          <div class="tab active">New Products</div>
+          <div class="tab">Featured Products</div>
+          <div class="tab">Best Seller</div>
+        </div>
+      </div>
+      <div id="cards-container"></div>
+      <div class="containerImages">
+        <img src="https://avatars.mds.yandex.net/i?id=c40de7ae4b79e4ac51c5c114caf724d2_l-5325638-images-thumbs&n=13" width="400px" alt="">
+        <img src="https://static.wikia.nocookie.net/ddf81578-c867-454a-b986-120095a08649" width="400px" alt="">
+        <img src="https://img.goodfon.ru/original/1920x1200/d/e7/prazdnik-novyy-god-kamin.jpg" width="400px" alt="">
+      </div>
+      <div class="containerProfile">
+        <img src="https://kamtk.ru:9096/el-zurnal/el-dnevnik/Css/image1/profile.png" alt="Profile" class="profile-img">
+        <h1>Webheay Themes</h1>
+        <h2>Wed Censtoriya</h2>
+        <p>At Victoria we pride ourselves on offering the latest styles to help you refine your image with outstanding styles.</p>
+        <p>Let us help you refine your image by offering the greatest styles to help you refine.</p>
+      </div>
+    </main>
     <footer>
             <div class="footer-container">
               <div class="logo-section">
@@ -84,6 +128,176 @@
             </div> 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">         
     </footer>
-    <script src="index.js"></script>
+    <a href="#top" id="up">
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 5V19M12 5L6 11M12 5L18 11" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+    </a>
+
+
+
+
+
+
+    <script>
+    window.addEventListener("scroll", function () {
+    const header = document.getElementById("header");
+    header.classList.toggle("sticky", window.scrollY > 200);
+    });
+
+
+
+    function updateCountdown() {
+            const now = new Date();
+            const nextYear = now.getFullYear() + 1;
+            const newYearDate = new Date(`January 1, ${nextYear} 00:00:00`);
+            const diff = newYearDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+
+
+
+        const cardsContainer = document.getElementById('cards-container');
+        const data = [
+          {
+            image:"https://na-dache.pro/uploads/posts/2021-05/1620441928_39-p-butilka-vina-foto-49.png",
+            name: "Wine Bottle",
+            price: 235.00, 
+          },
+          {
+            image:"https://i0.wp.com/free-png.ru/wp-content/uploads/2021/10/free-png.ru-372.png?w=900&ssl=1",
+            name: "Santa Bag",
+            price: 156.45, 
+          },
+          {
+            image:"https://www.matras-barabas.ru/content/new-year-hat.png",
+            name: "Santa Cap",
+            price: 56.5, 
+          },
+          {
+            image:"https://www.pngarts.com/files/7/Socks-Christmas-Stocking-PNG-Download-Image.png",
+            name: "New Year socks",
+            price: 156.45, 
+          },
+          {
+            image:"https://i.pinimg.com/originals/42/8e/1a/428e1a4ced804c1962336f378a10da21.png",
+            name: "Surprise box",
+            price: 356.45, 
+          },
+          {
+            image:"https://i.pinimg.com/originals/26/ad/45/26ad4567dea2351154dc281adf1a0735.png",
+            name: "Tree candle",
+            price: 36.5, 
+          },
+          {
+            image:"https://i.pinimg.com/originals/52/5e/aa/525eaa5d0989fc47ba3243208342799c.png",
+            name: "Santa",
+            price: 256.45, 
+          },
+          {
+            image:"https://idel-tat.ru/images/uploads/news/2020/12/26/20871be6ae1a00d3ad0bd7a5829f83bd.png",
+            name: "Decoration Light",
+            price: 256.45, 
+          },
+        ];
+
+
+        data.forEach((item) => {
+          const card = document.createElement('div');
+          const cardImage = document.createElement('img');
+          const cardName = document.createElement('h2');
+          const cardPrice = document.createElement('span');
+
+          cardImage.src = item.image;
+          cardName.textContent = item.name;
+          cardPrice.textContent = item.price + ' $';
+
+          card.appendChild(cardImage);
+          card.appendChild(cardName);
+          card.appendChild(cardPrice);
+
+          card.classList.add('card')
+          cardsContainer.appendChild(card);
+        });
+
+        const NUMBER_OF_SNOWFLAKES = 300;
+        const MAX_SNOWFLAKE_SIZE = 5;
+        const MAX_SNOWFLAKE_SPEED = 0.25;
+        const SNOWFLAKE_COLOUR = '#ddd';
+        const snowflakes = [];
+
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'absolute';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.top = '0px';
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+
+        const createSnowflake = () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.floor(Math.random() * MAX_SNOWFLAKE_SIZE) + 1,
+        color: '#FFFFFF',
+        speed: Math.random() * MAX_SNOWFLAKE_SPEED + 1,
+        sway: Math.random() - 0.5
+        });
+
+        const drawSnowflake = snowflake => {
+        ctx.beginPath();
+        ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+        ctx.fillStyle = snowflake.color;
+        ctx.fill();
+        ctx.closePath();
+        };
+
+        const updateSnowflake = snowflake => {
+        snowflake.y += snowflake.speed;
+        snowflake.x += snowflake.sway;
+          if (snowflake.y > canvas.height) {
+            Object.assign(snowflake, createSnowflake());
+          }
+        };
+
+        const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        snowflakes.forEach(snowflake => {
+          updateSnowflake(snowflake);
+          drawSnowflake(snowflake);
+        });
+
+        requestAnimationFrame(animate);
+        };
+
+        for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
+        snowflakes.push(createSnowflake());
+        }
+
+        animate();
+
+        const arrow = document.getElementById("up");
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                arrow.style.display = 'block';
+            } else {
+                arrow.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

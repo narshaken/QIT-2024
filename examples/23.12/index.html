@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input class="searchInput appear shadow" type="text" id="searchInput" placeholder="Search..">
+    <button id="searchButton">search</button>
+    <p class="description">wsertyuiodskfbkdbkddfbkdbfkdsfkbfkbfjkbfkdbfkjdbfkjdbfkjdbfjkd
+        b <d class="hide" id="text">fkjdbfjsdbfkjdsbfkjsdfbjdskbfdjfbdfbjdbfffffffffffffffffffffffffsjkkkkkkkkkkkkkkkkkkdsfffffffffffffffff</d></p>
+        <button id="show">show more</button>
+
+
+
+    <script>
+        const searchButton = document.getElementById("searchButton");
+        const searchInput = document.getElementById("searchInput");
+
+        searchButton.addEventListener("click", () => {
+            searchInput.classList.toggle('highlight')
+        });
+
+        searchButton.addEventListener("dblclick", () => {
+            searchInput.classList.remove('shadow');
+        });
+
+        const text = document.getElementById('text');
+        const show = document.getElementById('show');
+
+        let isShown = false;
+
+        show.addEventListener('click', () => {
+            text.classList.toggle('hide');
+            isShown = !isShown;
+            show.textContent = isShown ? 'show less' : 'show more';
+        });
+    </script>
+</body>
+</html>

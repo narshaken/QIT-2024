@@ -1,0 +1,18 @@
+.searchInput {
+    display: none;
+    border: 2px solid black;
+    height: 30px;
+    border-radius: 10px;
+}
+.appear {
+    display: block;
+}
+.highlight {
+    background: yellow;
+}
+.shadow {
+    box-shadow: 10px 10px 10px black;
+}
+.hide {
+    display: none;
+}

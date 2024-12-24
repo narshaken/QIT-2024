@@ -14,8 +14,10 @@
         <button id="searchButton">izdeu</button>
     </div>
 
-    <ul id="todoList">
-    </ul>
+    <ul id="todoList"></ul>
+
+
+
     <script>
         const todoList = document.getElementById("todoList");
         const addButton = document.getElementById("addButton");
@@ -33,12 +35,46 @@
             span.textContent = taskInput.value;
             taskInput.value = '';
 
+            task.style.width = '250px';
+            task.style.display = 'flex';
+            task.style.justifyContent = 'space-between';
+            task.style.background = 'gainsboro';
+            task.style.padding = '5px';
+
             task.appendChild(span);
             todoList.appendChild(task);
             task.appendChild(deleteButton);
-            }
+            task.addEventListener("dblclick", () => {
+                const changeName = document.createElement('input');
+                changeName.placeholder = 'changeName';
 
+                task.replaceChild(changeName, span);
+
+                changeName.addEventListener("blur", () => {
+                    span.textContent = changeName.value;
+
+                    task.replaceChild(span, changeName);
+                });
+            });
+            };
             console.log(taskInput.value);
+        });
+
+
+
+
+        searchButton.addEventListener("click", () => {
+            const searchInput = document.getElementById("searchInput");
+            const tasks = document.querySelectorAll("li");
+
+            tasks.forEach((task) => {
+                const text = task.querySelector("span");
+                if (!text.textContent.toLowerCase().includes(searchInput.value.toLowerCase)) {
+                    task.style.display = 'none';
+                } else {
+                    task.style.display = 'flex';
+                }
+            });
         });
     </script>
 </body>

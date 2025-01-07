@@ -24,6 +24,7 @@ input {
     width: 256px;
     padding: 20px;
     border-radius: 10px;
+    color: white;
 }
 button {
     border-radius: 10px;
@@ -40,7 +41,4 @@ button {
 }
 .green {
     background-color: rgb(8, 196, 8);
-}
-.buttonSpan {
-    grid-column: span 2;
 }

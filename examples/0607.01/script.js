@@ -11,7 +11,7 @@ function calculate (buttonValue) {
     } else if (buttonValue == "+/-") {
         output = eval(output) * -1
     } else if (buttonValue == "del") {
-    
+        output = output.toString().slice(0, -1)
     } else {
         output += buttonValue
     }

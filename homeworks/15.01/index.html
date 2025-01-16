@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>la lla laa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find out the weather of the city</h1>
+    <label for="input">Enter city name:</label>
+    <input type="text" id="input" placeholder="City..">
+    <button id="btn">Check the weather</button>
+    <div id="result"></div>
+
+    <script>
+        const apiKey = 'fb2cff02b71168e9f0c68fd3f83d168a'; 
+
+        document.getElementById('btn').addEventListener('click', () => {
+            const city = document.getElementById('input').value;
+            if (!city) {
+                alert('Enter city name!');
+                return;
+            }
+
+            const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(api)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('City not found, try again');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weather = data.weather[0].description;
+                    const temp = data.main.temp;
+                    document.getElementById('result').innerHTML = `
+                        <p>City: ${data.name}</p>
+                        <p>Temperatura: ${temp}°C</p>
+                        <p>Weather: ${weather}</p>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('result').innerText = error.message;
+                });
+        });
+    </script>
+</body>
+</html>

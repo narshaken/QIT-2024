@@ -18,7 +18,7 @@
       fetch(apiUrl)
         .then(response => {
           if (!response.ok) {
-            throw new Error('Не удалось получить изображение');
+            throw new Error('ne удалось получить изображение');
           }
           return response.json();
         })
@@ -35,7 +35,7 @@
         })
         .catch(error => {
           console.error('Ошибка:', error);
-          imageContainer.innerHTML = '<p>Не удалось загрузить изображение собаки.</p>';
+          imageContainer.innerHTML = '<p>ne удалось загрузить изображение собаки.</p>';
         });
     }
 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #user-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>qoldanushylar tizimi</h1>
+    <div id="user-container"></div>
+    <script>
+async function fetchData(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('error qatee');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('qate oryn aldy!', error);
+        return null;
+    }
+}
+
+function displayData(users) {
+    const container = document.getElementById('user-container');
+
+    users.forEach(user => {
+        const userBlock = document.createElement('div');
+        userBlock.style.backgroundColor = 'gainsboro';
+        userBlock.style.color = 'black';
+        userBlock.style.padding = '10px';
+        userBlock.style.marginBottom = '10px';
+        userBlock.style.borderRadius = '5px';
+
+        userBlock.innerHTML = `
+            <p><strong>user name:</strong> ${user.name}</p>
+            <p><strong>email:</strong> ${user.email}</p>
+        `;
+
+        container.appendChild(userBlock);
+    });
+}
+
+async function main() {
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    const users = await fetchData(url);
+
+    if (users) {
+        displayData(users);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', main);
+
+    </script>
+</body>
+</html>

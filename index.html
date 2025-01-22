@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            background: url(https://www.itl.cat/pngfile/big/323-3235905_quiz-wall-paper.jpg);
+        }
+
+        .container {
+            width: 800px;
+            margin: 20px 220px;
+            padding: 20px;
+            background: white;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px black;
+        }
+
+        .opshi {
+            display: flex;
+        }
+        .menu {
+            margin-left: 20px;
+            margin-top: 20px;
+            font-size: 30px;
+            color: white;
+            border-radius: 10px;
+            width: 120px;
+            border: none;
+            background-color: orangered;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .image {
+            margin: 20px 0;
+        }
+
+        .image img {
+            height: 250px;
+            width: auto;
+            border-radius: 10px;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .options button {
+            padding: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .options button:hover {
+            background-color: green;
+            transform: scale(1.05);
+        }
+
+        .score {
+            font-size: 1.8em;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .timer-controls {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .skip {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next {
+            margin-top: -40px;
+            margin-left: 90%;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .next:hover, .timer-controls:hover, .skip:hover {
+            background-color: green;
+        }
+
+        .timer {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: red;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="opshi">
+        <div>
+            <a href="start.html"><button class="menu" id="menu">Exit</button></a>
+        </div>
+        <div class="container">
+            <h1>Quiz Game</h1>
+            <div id="quiz">
+                <div class="question" id="question">Loading question...</div>
+                <div class="image" id="image"></div>
+                <div class="options" id="options"></div>
+                <div class="timer" id="timer">Time left: 30s</div>
+            </div>
+            <button class="timer-controls" id="pause">Pause Timer</button>
+            <button class="timer-controls" id="resume" style="display: none;">Resume Timer</button>
+            <button class="next" id="next" onclick="loadNextQuestion()" style="display: none;">Next</button>
+            <button class="skip" id="skip" onclick="skipQuestion()">Skip</button>
+            <div class="score" id="score"></div>
+        </div>
+    </div>
+    
+    
+    <script>
+        const questions = [
+            { 
+                question: "Qazaqstannyn astanasy qai qala?", 
+                options: ["Astana", "Almaty", "Shymkent", "Pavlodar"], 
+                answer: "Astana", 
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Kazakhstan-Flagmap.svg/1200px-Kazakhstan-Flagmap.svg.png" 
+            },
+            { 
+                question: "'Abai joly' romanyn kim jazdy?", 
+                options: ["Abai Qunanbaev", "Muhtar Auezov", "Bauyrzhan Momyshuly", "Shaken Nar"], 
+                answer: "Muhtar Auezov", 
+                image: "https://e-history.kz/storage/tmp/resize/news/1200_0_MrkKgxHWanUHGtvyZp8iC09Sqm2sIynlFPWgOiCo.jpg" 
+            },
+            { 
+                question: "Biz qai galamsharda omir suremiz?", 
+                options: ["Earth", "Jupiter", "Mars", "Venus"], 
+                answer: "Earth", 
+                image: "https://avatars.mds.yandex.net/i?id=2f8b82e8b89c39a03f9e662a8732b0a51876d484-4963661-images-thumbs&n=13" 
+            },
+            { 
+                question: "Sudyn himialuq atauy?", 
+                options: ["H2O", "O2", "CO2", "NaCl"], 
+                answer: "H2O", 
+                image: "https://avatars.mds.yandex.net/i?id=bb342cf0bfec834352c80f54da7cecc210d83c65-8497871-images-thumbs&n=13" 
+            },
+            { 
+                question: "Biz qandai mektepte oqimyz?", 
+                options: ["ABAI atyndagy", "AMJILT", "Pablo Picasso", "Nazarbaev"], 
+                answer: "AMJILT", 
+                image: "https://avatars.mds.yandex.net/i?id=039c3b37706f840b8576c0ff9638f0c9ae870895-8869905-images-thumbs&n=13" 
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timerInterval;
+        let timeLeft = 15;
+        let timerPaused = false;
+
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const scoreElement = document.getElementById('score');
+        const nextButton = document.getElementById('next');
+        const skipButton = document.getElementById('skip');
+        const timerElement = document.getElementById('timer');
+        const pauseButton = document.getElementById('pause');
+        const resumeButton = document.getElementById('resume');
+        const imageElement = document.getElementById('image');
+
+        function loadQuestion() {
+            timeLeft = 15;
+            updateTimer();
+            startTimer();
+
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            imageElement.innerHTML = `<img src="${currentQuestion.image}" alt="Question Image">`;
+            optionsElement.innerHTML = '';
+
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.onclick = () => checkAnswer(option);
+                optionsElement.appendChild(button);
+            });
+
+            nextButton.style.display = 'none';
+        }
+
+        function checkAnswer(selectedOption) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            const buttons = document.querySelectorAll('.options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                if (button.textContent === correctAnswer) {
+                    button.style.backgroundColor = '#4caf50';
+                    skipButton.style.display = 'none'
+                    
+                } else {
+                    button.style.backgroundColor = '#f44336';
+                }
+            
+            });
+
+            if (selectedOption === correctAnswer) {
+                score++;
+            }
+
+            clearInterval(timerInterval);
+            nextButton.style.display = 'block';
+        }
+
+        function loadNextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                displayScore();
+            }
+        }
+
+        function skipQuestion() {
+            clearInterval(timerInterval);
+            loadNextQuestion();
+            
+        }
+
+        function displayScore() {
+            questionElement.style.display = 'none';
+            optionsElement.style.display = 'none';
+            imageElement.style.display = 'none';
+            nextButton.style.display = 'none';
+            skipButton.style.display = 'none';
+            timerElement.style.display = 'none';
+            pauseButton.style.display = 'none';
+            resumeButton.style.display = 'none';
+            scoreElement.style.display = 'block';
+            scoreElement.textContent = `Your final score is ${score}/${questions.length}.`;
+        }
+
+        function startTimer() {
+            timerPaused = false;
+            pauseButton.style.display = 'inline';
+            resumeButton.style.display = 'none';
+
+            timerInterval = setInterval(() => {
+                if (!timerPaused) {
+                    timeLeft--;
+                    updateTimer();
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        checkAnswer(null);
+                    }
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            timerPaused = true;
+            clearInterval(timerInterval);
+            pauseButton.style.display = 'none';
+            resumeButton.style.display = 'inline';
+        }
+
+        function resumeTimer() {
+            timerPaused = false;
+            startTimer();
+        }
+
+        function updateTimer() {
+            timerElement.textContent = `Time left: ${timeLeft}s`;
+        }
+
+        pauseButton.onclick = pauseTimer;
+        resumeButton.onclick = resumeTimer;
+
+        loadQuestion();
+    </script>
+</body>
+</html>
+

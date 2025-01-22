@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="quiz-container"></div>
+
+    <script>
+const apiUrl = 'https://67873274c4a42c916105d2fe.mockapi.io/api/onlineduken/questions';
+
+async function fetchQuizData() {
+    try {
+        const response = await fetch(apiUrl);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        quizContainer.innerHTML = '';
+
+        data.forEach((item, index) => {
+            const questionBlock = document.createElement('div');
+            questionBlock.classList.add('question-block');
+
+            const questionTitle = document.createElement('h3');
+            questionTitle.textContent = `Question ${index + 1}: ${item.question}`;
+            questionBlock.appendChild(questionTitle);
+
+            const optionsList = document.createElement('ul');
+            item.options.forEach(option => {
+                const optionItem = document.createElement('li');
+                optionItem.textContent = option;
+                optionsList.appendChild(optionItem);
+            });
+            questionBlock.appendChild(optionsList);
+
+            const answer = document.createElement('p');
+            answer.textContent = `Answer: ${item.answer}`;
+            answer.classList.add('answer');
+            questionBlock.appendChild(answer);
+
+            quizContainer.appendChild(questionBlock);
+        });
+    } catch (error) {
+        console.error('Error fetching quiz data:', error);
+    }
+}
+
+fetchQuizData();
+    </script>
+</body>
+</html>

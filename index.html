@@ -11,7 +11,6 @@
             padding: 0;
             color: white;
             text-align: center;
-            background: url(https://www.itl.cat/pngfile/big/323-3235905_quiz-wall-paper.jpg);
         }
 
         .container {
@@ -23,19 +22,19 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px black;
         }
-
-        .opshi {
+        .all {
             display: flex;
         }
         .menu {
             margin-left: 20px;
             margin-top: 20px;
             font-size: 30px;
-            color: white;
+            color: orangered;
             border-radius: 10px;
             width: 120px;
             border: none;
-            background-color: orangered;
+            background-color: white;
+            box-shadow: 5px 5px 10px orangered;
         }
 
         h1 {
@@ -134,7 +133,7 @@
     </style>
 </head>
 <body>
-    <div class="opshi">
+    <div class="all">
         <div>
             <a href="start.html"><button class="menu" id="menu">Exit</button></a>
         </div>
@@ -314,6 +313,7 @@
         resumeButton.onclick = resumeTimer;
 
         loadQuestion();
+
     </script>
 </body>
 </html>

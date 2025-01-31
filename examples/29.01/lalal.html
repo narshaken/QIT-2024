@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Color Picker</title>
     <style>
         body {
             display: flex;
             justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
         }
         button {
             border: none;
@@ -16,9 +20,10 @@
             padding: 10px;
             width: 70px;
             border-radius: 10px;
+            cursor: pointer;
         }
         #color {
-            margin-top: 200px;
+            text-align: center;
         }
     </style>
 </head>
@@ -31,27 +36,27 @@
     </div>
 
     <script>
-        function lalala () {
-            const savedColor = sessionStorage.getItem("selectedColor");
+        function lalala() {
+            const savedColor = localStorage.getItem("selectedColor");
             if (savedColor) {
                 document.getElementById("colorInput").value = savedColor;
                 document.body.style.backgroundColor = savedColor;
             }
-        };
+        }
 
-        
         function saveData() {
             const color = document.getElementById("colorInput").value;
-            sessionStorage.setItem("selectedColor", color);
+            localStorage.setItem("selectedColor", color);
             document.body.style.backgroundColor = color;
         }
 
-        
         function removeData() {
-            sessionStorage.removeItem("selectedColor");
+            localStorage.removeItem("selectedColor");
             document.getElementById("colorInput").value = "#ffffff"; 
             document.body.style.backgroundColor = "#ffffff";
         }
+
+        window.onload = lalala;
     </script>
 </body>
 </html>

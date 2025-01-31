@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>esep jazu jane saqtau</h2>
+        <textarea id="mathInput"></textarea>
+        <br>
+        <button onclick="saveText()">save</button>
+        <button onclick="clearText()">clean</button>
+    </div>
+
+    <script>
+        function saveText() {
+            let text = document.getElementById("mathInput").value;
+            localStorage.setItem("savedMath", text);
+        }
+
+        function clearText() {
+            document.getElementById("mathInput").value = "";
+            localStorage.removeItem("savedMath");
+        }
+
+        window.onload = function() {
+            let savedText = localStorage.getItem("savedMath");
+            if (savedText) {
+                document.getElementById("mathInput").value = savedText;
+            }
+        }
+    </script>
+</body>
+</html>

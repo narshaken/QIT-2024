@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>local storage</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="esiminiz" required>
+    <input type="number" id="age" placeholder="jasynyz" required>
+    <button onclick="saveData()">save</button>
+    <button onclick="loadData()">show</button>
+    <button onclick="removeData()">clear</button>
+    
+
+    <script>
+        // malimet saqtau
+        //localStorage.setItem('name', 'Nar');
+
+        //malimetti oqu
+        //const name = localStorage.getItem('name');
+        //console.log(name); //Nar
+
+        //malimetti oshiru
+        //localStorage.removeItem('name');
+
+        //barlyq malimetti tazalau
+        //localStorage.clear();
+
+       function saveData() {
+        const nameWritten = document.getElementById('name').value;
+        const ageWritten = document.getElementById('age').value;
+        localStorage.setItem('name', nameWritten);
+        localStorage.setItem('age', ageWritten);
+        alert('malimet saqtaldy');
+       }
+
+       function loadData() {
+        const name = localStorage.getItem('name');
+        const age = localStorage.getItem('age');
+        if ( name && age ) {
+            alert(`atynyz: ${name}, jasynyz: ${age}`)
+        } else {
+            alert('malimet tabylmady')
+        }
+       }
+
+       function removeData() {
+        localStorage.clear()
+       }
+    </script>
+</body>
+</html>

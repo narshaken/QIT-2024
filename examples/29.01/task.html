@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+    <style>
+        input {
+            margin-bottom: 15px;
+            width: 240px;
+            border-radius: 5px;
+            border: 1px solid yellow;
+            color: violet;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            width: fit-content;
+        }
+        button {
+            border: none;
+            background-color: violet;
+            color: yellow;
+            padding: 5px;
+            width: 80px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input id="name" type="text" placeholder="enter your name" required>
+        <br>
+        <input id="age" type="number" placeholder="jasynyz" required>
+        <br>
+        <input id="color" type="text" placeholder="favorite color" required>
+        <br>
+        <input id="plan" type="text" placeholder="bugingi plan" required>
+        <br>
+    </form>
+    <button onclick="saveData()">save</button>
+    <button onclick="removeData()">delete</button>
+    <button onclick="loadData()">show</button>
+    
+    <div id="output"></div>
+
+    <script>
+        function saveData() {
+            const nameWritten = document.getElementById('name').value;
+            const ageWritten = document.getElementById('age').value;
+            const colorWritten = document.getElementById('color').value;
+            const planWritten = document.getElementById('plan').value;
+
+            sessionStorage.setItem('name', nameWritten);
+            sessionStorage.setItem('age', ageWritten);
+            sessionStorage.setItem('color', colorWritten);
+            sessionStorage.setItem('plan', planWritten);
+            document.getElementById('output').innerHTML = "malimet saqtaldy";
+        }
+
+        function loadData() {
+            const name = sessionStorage.getItem('name');
+            const age = sessionStorage.getItem('age');
+            const color = sessionStorage.getItem('color');
+            const plan = sessionStorage.getItem('plan');
+            
+            if (name && age && color && plan) {
+                document.getElementById('output').innerHTML = 
+                `<p>name: ${name}</p>
+                <p>age: ${age}</p>
+                <p>fav color: ${color}</p>
+                <p>plan: ${plan}</p>`;
+            } else {
+                document.getElementById('output').innerHTML = "malimet tabylmady";
+            }
+        }
+
+        function removeData() {
+            sessionStorage.clear();
+            document.getElementById('output').innerHTML = "malimet oshirildi";
+        }
+    </script>
+</body>
+</html>

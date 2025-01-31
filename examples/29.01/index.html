@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session storage</title>
+    <style>
+        input {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input id="name" type="text">
+        <label for="">Есіміңізді еңгізіңіз</label><br>
+
+        <input id="age" type="number">
+        <label for="">Jasynyz</label><br>
+
+        <input id="color" type="text">
+        <label for="">Suiikti tusiniz</label><br>
+
+        <input id="plan" type="text">
+        <label for="">Buginge josparynyz</label><br>
+    </form>
+    <button onclick="saveData()">save</button>
+    <button onclick="removeData()">delete</button>
+    <button onclick="loadData()">show</button>
+
+    <script>
+        function saveData() {
+        const nameWritten = document.getElementById('name').value;
+        const ageWritten = document.getElementById('age').value;
+        const colorWritten = document.getElementById('color').value;
+        const planWritten = document.getElementById('plan').value;
+
+        sessionStorage.setItem('name', nameWritten);
+        sessionStorage.setItem('age', ageWritten);
+        sessionStorage.setItem('color', colorWritten);
+        sessionStorage.setItem('plan', planWritten);
+        alert("malimet saqtaldy")
+       }
+
+       function loadData() {
+        const name = sessionStorage.getItem('name');
+        const age = sessionStorage.getItem('age');
+        const color = sessionStorage.getItem('color');
+        const plan = sessionStorage.getItem('plan');
+
+        if ( name && age && color && plan ) {
+            alert(`atynyz: ${name}, jasynyz: ${age}, favorite color: ${color}, plan: ${plan}`)
+        } else {
+            alert('malimet tabylmady')
+        }
+       }
+
+       function removeData() {
+        localStorage.clear()
+       }
+    </script>
+</body>
+</html>

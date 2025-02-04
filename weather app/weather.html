@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #eff5ff;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            display: flex;
+            justify-content: space-around;
+            background-color: cornflowerblue;
+            height: 90px;
+            align-items: center;
+        }
+        #search {
+            padding: 8px;
+            width: 250px;
+            border-radius: 10px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: yellow;
+        }
+        #searchIcon {
+            width: 30px;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        section {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        footer {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            color: cornflowerblue;
+            background-color: white;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .forecast-day {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .forecast-day h3 {
+            margin: 0;
+        }
+        .forecast-day p {
+            margin: 5px 0;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+        }
+        h2:hover {
+            scale: 1.2;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="home.html"><h2>Home</h2></a>
+        </div>
+        <div>
+            <a href="login.html"><h2>Login</h2></a>
+        </div>
+        <div>
+            <a href="register.html"><h2>Register</h2></a>
+        </div>
+        <div>
+            <a href="weather.html"><h2>Weather App</h2></a>
+        </div>
+        <div>
+            <input type="text" id="input" placeholder="Enter city name..">
+            <button id="btn">🔍</button>
+        </div>
+    </header>
+    <main>
+        <section id="forecast-section"></section>
+    </main>
+    <footer>
+        <p>Weather is a topic of great interest and concern for people all over the world.</p>
+    </footer>
+    <script>
+        const apiKey = 'fb2cff02b71168e9f0c68fd3f83d168a';
+        const iconMap = {
+            'clear sky': 'https://openweathermap.org/img/wn/01d.png',
+            'few clouds': 'https://openweathermap.org/img/wn/02d.png',
+            'scattered clouds': 'https://openweathermap.org/img/wn/03d.png',
+            'broken clouds': 'https://openweathermap.org/img/wn/04d.png',
+            'shower rain': 'https://openweathermap.org/img/wn/09d.png',
+            'rain': 'https://openweathermap.org/img/wn/10d.png',
+            'thunderstorm': 'https://openweathermap.org/img/wn/11d.png',
+            'snow': 'https://openweathermap.org/img/wn/13d.png',
+            'mist': 'https://openweathermap.org/img/wn/50d.png'
+        };
+
+        function displayWeather(city) {
+            const api = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+            fetch(api)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('City not found, try again');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const city = data.city.name;
+                    let forecastHtml = '';
+                    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                    let dayIndex = 0;
+
+                    for (let i = 0; i < data.list.length; i += 8) {
+                        if (dayIndex > 6) break; 
+                        const dayData = data.list[i];
+                        const date = new Date(dayData.dt * 1000);
+                        const day = days[dayIndex];
+                        const temp = dayData.main.temp;
+                        const weather = dayData.weather[0].description;
+                        const icon = iconMap[weather] || iconMap['clear sky']; 
+
+                        forecastHtml += `
+                            <section class="forecast-day">
+                                <div>
+                                    <h3>${day}</h3>
+                                    <img src="${icon}" alt="${weather}" class="icon">
+                                    <p>Temperature: ${temp}°C</p>
+                                    <p>Weather: ${weather}</p>
+                                </div>
+                            </section>
+                        `;
+                        dayIndex++;
+                    }
+
+                    document.getElementById('forecast-section').innerHTML = forecastHtml;
+                })
+                .catch(error => {
+                    document.getElementById('forecast-section').innerText = error.message;
+                });
+        }
+
+        const storedCity = localStorage.getItem('city');
+        if (storedCity) {
+            displayWeather(storedCity); 
+            document.getElementById('input').value = storedCity;
+        }
+
+        document.getElementById('btn').addEventListener('click', () => {
+            const city = document.getElementById('input').value;
+            if (!city) {
+                alert('Enter city name!');
+                return;
+            }
+            localStorage.setItem('city', city); 
+            displayWeather(city); 
+        });
+    </script>
+</body>
+</html>
+

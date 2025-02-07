@@ -19,8 +19,8 @@
         header {
             display: flex;
             justify-content: space-around;
-            background-color: cornflowerblue;
-            height: 90px;
+            background-color: #2DABAF;
+            height: 50px;
             align-items: center;
         }
         #search {
@@ -33,10 +33,7 @@
             text-decoration: none;
         }
         a:hover {
-            color: yellow;
-        }
-        h2:hover {
-            scale: 1.2;
+            color: #3ADEE3;
             transition: 1s;
         }
         input, button {
@@ -45,15 +42,15 @@
             margin: 10px;
             border-radius: 5px;
             border: none;
-            color: cornflowerblue;
+            color: #2DABAF;
             background-color: white;
         }
         footer {
-            background-color: cornflowerblue;
+            background-color: #2DABAF;
             color: white;
             padding: 30px;
             text-align: center;
-            margin-top: 200px;
+            margin-top: 150px;
         }
         main div {
             display: grid;
@@ -76,7 +73,7 @@
         }
         label {
             background-color: white;
-            color: cornflowerblue;
+            color: #2DABAF;
             border-radius: 5px;
             padding: 20px;
         }
@@ -84,31 +81,38 @@
 </head>
 <body>
     <header>
-        <div>
-            <a href="home.html"><h2>Home</h2></a>
-        </div>
-        <div>
-            <a href="login.html"><h2>Login</h2></a>
-        </div>
-        <div>
-            <a href="register.html"><h2>Register</h2></a>
-        </div>
-        <div>
-            <a href="weather.html"><h2>Weather App</h2></a>
-        </div>
+        <div><a href="login.html"><h2>Login</h2></a></div>
+        <div><a href="register.html"><h2>Register</h2></a></div>
+        <div><a href="weather.html"><h2>Weather App</h2></a></div>
     </header>
     <main>
         <div>
             <label>Register to be the first to know the weather in your city, and there will also be interesting new news here</label>
-            <input type="text" required placeholder="Enter your name..">
-            <input type="text" required placeholder="Enter your surname..">
-            <input type="email" required placeholder="Enter your email..">
-            <button>Register</button>
+            <input type="text" id="name" required placeholder="Enter your name..">
+            <input type="text" id="surname" required placeholder="Enter your surname..">
+            <input type="email" id="email" required placeholder="Enter your email..">
+            <input type="password" id="password" required placeholder="Enter your password..">
+            <button onclick="registerUser()">Register</button>
         </div>
         <aside></aside>
     </main>
     <footer>
         <p>Weather is a topic of great interest and concern for people all over the world.</p>
     </footer>
+
+    <script>
+        function registerUser() {
+            let name = document.getElementById('name').value;
+            let surname = document.getElementById('surname').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            
+            if (name && surname && email && password) {
+                alert(`Name: ${name}\nSurname: ${surname}\nEmail: ${email}\nPassword: ${password}\n\nInformation saved!`);
+            } else {
+                alert("Fill in all fields!");
+            }
+        }
+    </script>
 </body>
 </html>

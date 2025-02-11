@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Dancing+Script:wght@400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playwrite+CO+Guides&family=Playwrite+IN+Guides&display=swap');
+
+
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Afacad Flux", serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-around;
+            height: 60px;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 5px 5px 5px gainsboro;
+        }
+        .logoimg {
+            width: 150px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+            margin-left: 15px;
+            font-size: 20px;
+        }
+        .exit {
+            width: 20px;
+            height: 25px;
+        }
+        .buttonsub {
+            margin-right: 10px;
+            background-color: rgb(21, 175, 21);
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100px;
+            border-radius: 15px;
+        }
+        main {
+            margin-top: 100px;
+        }
+        #text {
+            text-align: center;
+        }
+        #text p {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: gray;
+        }
+        h3 a {
+            color: gray;
+            text-decoration: underline;
+        }
+        input {
+            width: 300px;
+            height: 30px;
+            padding: 5px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(246, 245, 245);
+        }
+        #card div {
+            box-shadow: 5px 5px 5px gainsboro;
+            width: 200px;
+            height: 250px;
+            border-radius: 5px;
+        }
+        #card {
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px 200px;
+            gap: 20px;
+            margin-top: 20px;
+            margin-left: 200px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+        #card div p {
+            color: gray;
+            margin-left: 15px;
+        }
+        #card div h3 {
+            color: black;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="logoimg" src="https://mypromo.my/wp-content/uploads/2021/01/GrabFood-2-1024x437.png" alt="">
+        </div>
+        <div>
+            <a href="#">Programs</a>
+            <a href="#">Courses</a>
+            <a href="#">Recipes</a>
+            <a href="#">Shop</a>
+            <a href="#">Media</a>
+        </div>
+        <div>
+            <button class="buttonsub">Subscribe</button>
+            <svg class="exit" fill="#000000" width="91px" height="91px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.032"></g><g id="SVGRepo_iconCarrier"> <path d="M12.207 9H5V7h7.136L11.05 5.914 12.464 4.5 16 8.036l-3.536 3.535-1.414-1.414L12.207 9zM10 4H8V2H2v12h6v-2h2v4H0V0h10v4z" fill-rule="evenodd"></path> </g></svg>
+        </div>
+    </header>
+    <main>
+        <div id="text">
+            <h3><a href="index.html">Home </a>/ Recipes</h3>
+            <h1>New recipes every month</h1>
+            <p>Special recipes for breakfast, lunch and dinner that meet the needs of the body and should be included in the proper nutrition plan of each person</p>
+            <input type="text" placeholder="Search">
+            <svg class="search" viewBox="0 0 24 24" width="25px" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g clip-path="url(#clip0_15_152)"> <rect width="24" height="24" fill="white"></rect> <circle cx="10.5" cy="10.5" r="6.5" stroke="#000000" stroke-linejoin="round"></circle> <path d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z" fill="#000000"></path> </g> <defs> <clipPath id="clip0_15_152"> <rect width="24" height="24" fill="white"></rect> </clipPath> </defs> </g></svg>
+        </div>
+
+        <h2>Breakfast</h2>
+        <div id="card">
+            <div>
+                <img src="https://thumbs.dreamstime.com/b/matcha-green-tea-chia-seed-pudding-bowl-vegan-dessert-raspberry-coconut-milk-overhead-top-view-flat-lay-copy-space-84856215.jpg" alt="" width="200px">
+                <p><small>Breakfast</small></p>
+                <h3>Chia pudding with matcha</h3>
+                <p>20 min 140 kkal</p>
+            </div>
+            <div>
+                <img src="https://thumbs.dreamstime.com/b/matcha-green-tea-chia-seed-pudding-bowl-vegan-dessert-raspberry-coconut-milk-overhead-top-view-flat-lay-copy-space-84856215.jpg" alt="" width="200px">
+                <p><small>Breakfast</small></p>
+                <h3>Chia pudding with matcha</h3>
+                <p>20 min 140 kkal</p>
+            </div>
+            <div>
+                <img src="https://thumbs.dreamstime.com/b/matcha-green-tea-chia-seed-pudding-bowl-vegan-dessert-raspberry-coconut-milk-overhead-top-view-flat-lay-copy-space-84856215.jpg" alt="" width="200px">
+                <p><small>Breakfast</small></p>
+                <h3>Chia pudding with matcha</h3>
+                <p>20 min 140 kkal</p>
+            </div>
+            <div>
+                <img src="https://thumbs.dreamstime.com/b/matcha-green-tea-chia-seed-pudding-bowl-vegan-dessert-raspberry-coconut-milk-overhead-top-view-flat-lay-copy-space-84856215.jpg" alt="" width="200px">
+                <p><small>Breakfast</small></p>
+                <h3>Chia pudding with matcha</h3>
+                <p>20 min 140 kkal</p>
+            </div>
+            <div>
+                <img src="https://thumbs.dreamstime.com/b/matcha-green-tea-chia-seed-pudding-bowl-vegan-dessert-raspberry-coconut-milk-overhead-top-view-flat-lay-copy-space-84856215.jpg" alt="" width="200px">
+                <p><small>Breakfast</small></p>
+                <h3>Chia pudding with matcha</h3>
+                <p>20 min 140 kkal</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

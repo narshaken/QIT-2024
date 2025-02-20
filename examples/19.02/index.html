@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function orderFood() {
+            console.log("tapsyrys qabyldandy");
+            await wait(1000);
+        }
+
+        async function prepareFood() {
+            console.log("tamaq daiyndalyp jatyr");
+            await wait(3000);
+        }
+
+        async function deliverFood() {
+            console.log("tamaq jetkizilude");
+            await wait(2000);
+        }
+
+        async function processOrder() {
+            await orderFood();
+            await prepareFood();
+            await deliverFood();
+            console.log("process aiaqtaldy");
+        }
+
+        processOrder();
+    </script>
+</body>
+
+</html>

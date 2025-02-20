@@ -1,13 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+            height: 50px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: skyblue;
+            font-size: 25px;
+        }
+
+        header a:hover {
+            color: black;
+        }
+
+        body {
+            background-image: url(https://i.pinimg.com/originals/4c/61/ec/4c61ecc94da4ffdc386c6fd1ee362654.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        main {
+            margin-top: 300px;
+            text-align: center;
+        }
+
+        img {
+            width: 600px;
+            height: 400px;
+        }
+
+        main div {
+            margin-top: 100px;
+        }
+
+        main h1 {
+            margin-bottom: 600px;
+        }
+
+        #korea {
+            margin-top: 660px;
+        }
+
+        main a {
+            text-decoration: none;
+        }
+
+        main h2 {
+            margin-bottom: 20px;
+        }
+
+        .welcome {
+            color: white;
+            opacity: 0;
+            display: inline-block;
+            animation: fadeIn 4s infinite;
+            font-size: 150px;
+        }
+
+        .country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 100px;
+            opacity: 0;
+        }
+
+        .info {
+            max-width: 300px;
+            text-align: left;
+        }
+
+        @keyframes slideLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .left {
+            animation: slideLeft 4s ease-out forwards;
+        }
+
+        .right {
+            animation: slideRight 4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 5;
+                transform: translateY(0);
+            }
+        }
+
+        .info h2:hover {
+            color: black;
+            font-size: 27px;
+            transition: all 2s;
+        }
+
+        .info h2 {
+            color: skyblue;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        
+        <a href="index.html">Home</a>
     </header>
+    <main>
+        <h1 class="welcome">Welcome to the World</h1>
+
+        <div class="country left">
+            <img src="https://blog.ostrovok.ru/wp-content/uploads/2024/04/11%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-5.jpg"
+                alt="Seoul">
+            <div class="info">
+                <a href="korea.html">
+                    <h2>Korea - Seoul</h2>
+                </a>
+                <p>Seoul is a bustling metropolis known for its modern skyscrapers, pop culture, and historical palaces.
+                </p>
+            </div>
+        </div>
+
+        <div class="country right">
+            <div class="info">
+                <a href="turkey.html">
+                    <h2>Turkey - Istanbul</h2>
+                </a>
+                <p>Istanbul, a city that bridges Europe and Asia, is famous for its rich history, stunning mosques, and
+                    vibrant bazaars.</p>
+            </div>
+            <img src="https://blog.ostrovok.ru/wp-content/uploads/2023/12/6%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-13.jpg"
+                alt="Istanbul">
+        </div>
+
+        <div class="country left">
+            <img src="https://i.pinimg.com/originals/88/fa/ed/88faed82d2304e3a6b3d907b5becb4e5.jpg" alt="Beijing">
+            <div class="info">
+                <a href="china.html">
+                    <h2>China - Beijing</h2>
+                </a>
+                <p>Beijing, the capital of China, is home to the Great Wall, Forbidden City, and rich cultural heritage.
+                </p>
+            </div>
+        </div>
+
+        <div class="country right">
+            <div class="info">
+                <a href="japan.html">
+                    <h2>Japan - Tokyo</h2>
+                </a>
+                <p>Tokyo is a high-tech city with historic temples, neon-lit streets, and a love for anime and sushi.
+                </p>
+            </div>
+            <img src="https://i.pinimg.com/originals/21/9e/08/219e088a76c26328412796986d1bbf86.jpg" alt="Tokyo">
+        </div>
+
+        <div class="country left">
+            <img src="https://avatars.mds.yandex.net/i?id=50408589d69aeafef19dae8078cb20df_l-10931100-images-thumbs&n=13"
+                alt="Almaty">
+            <div class="info">
+                <a href="kazakhstan.html">
+                    <h2>Kazakhstan - Almaty</h2>
+                </a>
+                <p>Almaty, the largest city in Kazakhstan, is famous for its breathtaking mountains and cultural
+                    diversity.</p>
+            </div>
+        </div>
+
+        <div class="country right">
+            <div class="info">
+                <a href="france.html">
+                    <h2>France - Paris</h2>
+                </a>
+                <p>Paris, the City of Lights, is known for the Eiffel Tower, exquisite cuisine, and world-renowned
+                    museums.</p>
+            </div>
+            <img src="https://avatars.mds.yandex.net/i?id=08e45900ce0a69b74c6499d335b1342f_l-5263630-images-thumbs&n=13"
+                alt="Paris">
+        </div>
+
+        <div class="country left">
+            <img src="https://cdn.tripster.ru/thumbs2/b6dc31e4-6cea-11ee-b491-820ce152ed6a.1200x1000.jpeg" alt="Dubai">
+            <div class="info">
+                <a href="dubai.html">
+                    <h2>Dubai - Safari</h2>
+                </a>
+                <p>Dubai is a futuristic city known for its luxurious lifestyle, skyscrapers, and desert adventures.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const header = document.querySelector("header");
+
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 270) { // 270px төмен жылжығанда
+                    header.style.backgroundColor = "white";
+                } else {
+                    header.style.backgroundColor = "transparent";
+                }
+            });
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".welcome");
+
+            text.split("").forEach((char, index) => {
+                const span = document.createElement("span");
+                span.textContent = char;
+                span.style.animationDelay = `${index * 0.4} s`;
+                container.appendChild(span);
+            });
+        });
+    </script>
 </body>
+
 </html>
